@@ -1,0 +1,46 @@
+package infix_to_postfix_1_stack;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Infix_to_Postfix_1_stack {
+	static Stack<Character> s=new Stack<Character>();
+	static char t;
+	public static void main(String args[])
+	{     
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		infix_to_postfix_using_1_stack(s);
+		sc.close();
+	}
+	public static void infix_to_postfix_using_1_stack(String s)
+	{
+	  int len=s.length();
+	  for(int i=0;i<len;i++)
+	  {
+		(s.charAt(i)).isDigit();
+		  
+	  }
+	}
+	public static int getPrecedence(char c)
+	{
+	   switch(c)
+	   {
+	   case '+':
+		      return 1;
+	   case '-':
+		      return 2;
+	   case '*':
+		      return 3;
+	   case '/':
+		      return 4;
+	   case '^':
+		      return 5;
+	   case '(':
+		   	  return 0;
+	   case ')':
+		      return 0;
+	   }
+	   return 0;
+	}
+}

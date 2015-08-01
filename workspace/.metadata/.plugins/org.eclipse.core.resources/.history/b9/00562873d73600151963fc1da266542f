@@ -1,0 +1,53 @@
+package hackerrank;
+import java.util.Scanner;
+
+public class pompom_pattern {
+	static int major;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			int n=Integer.parseInt(sc.nextLine());
+			print_hexagon(n);
+		}
+		public static void print_hexagon(int n)
+		{  major=n;
+		   for(int i=1;i<=n;i++)
+		   {
+			   int j=n-i;
+			   while(j>0)
+			   {
+				   System.out.printf(" ");
+				   j--;
+			   }
+			   j=1;
+			   while(j<=major)
+			   {
+				   System.out.printf("*");
+				   j++;
+			   }
+			   System.out.println(" ");
+			   major=major+2;
+			   
+		   }
+		   major=2*n+3;
+		   for(int j=n-1;j>0;j--)
+		   {
+			   
+			   major=major-2;
+			   int i=n-j;
+			   while(i>0)
+			   {
+				   System.out.printf(" ");
+				   i--;
+			   }
+			   int y=1;
+			   while(y<=major)
+			   {
+				   System.out.printf("*");
+				   y++;
+			   }
+			   System.out.println("");
+		   }
+			
+		}
+}

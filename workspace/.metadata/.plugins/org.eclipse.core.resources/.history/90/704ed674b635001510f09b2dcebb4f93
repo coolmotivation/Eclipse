@@ -1,0 +1,10 @@
+package stock_span_problem;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Stock_Span_Problem {
+		public static void main(String args[])
+		{
+			
+		}
+}

@@ -1,0 +1,11 @@
+package stack_implementation_arrays;
+import java.util.Scanner;
+
+public class Stack_using_Arrays {
+		static int cn=0;
+		static int[] arr=new int[20];
+	  public static void main(String args[])
+		{
+			
+		}
+}

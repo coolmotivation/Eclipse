@@ -1,0 +1,118 @@
+package clone_a_linked_list;
+
+import java.util.Scanner;
+
+public class Clone_a_Linked_List {
+	 static Node head=new Node();
+	 static Node result=new Node();
+	  static int n;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the number of elements::");
+			n=Integer.parseInt(sc.nextLine());
+			for(int i=0;i<n;i++)
+			{  
+				//v.add(sc.nextInt());
+				insertion(head,sc.nextInt());
+			}
+			sc.nextLine();
+			System.out.println("Now enter their arbitary pointers::");
+			for(int i=0;i<n;i++)
+			{
+				insert_arbitary(sc.nextInt());
+			}
+			delete(head);
+			System.out.println("Original Linked List is::");
+			printLinkedList(head);
+			System.out.println(" ");
+			System.out.println("cloning the linked list, we get::");
+			clone(head);
+			printLinkedList(result);
+			
+		}
+		public static void insert_arbitary(int k)
+		{
+			Node temp=head;
+			while(temp.getArb()!=null)
+				temp=temp.getNext();
+			Node trial=head;
+					while(trial.getData()!=k)
+					{
+						trial=trial.getNext();
+					}
+					temp.setArb(trial);
+		}
+		public static void clone(Node temp)
+		{
+			while(temp!=null)
+			{
+				insertion(result,temp.getData());
+				temp=temp.getNext();
+			}
+			Node first=head;
+			Node second=result;
+			while(first!=null)
+			{
+				second.setArb(first.getArb());
+				first=first.getNext();
+				second=second.getNext();
+			}
+			
+		}
+		public static void delete(Node temp)
+		{
+			while(temp!=null)
+			{
+				temp=temp.getNext();
+				head=temp;
+			}
+		}
+		public static void insert_result(Node temp)
+		{
+			if(result.getData() == null)
+			{
+				result.setData(temp.getData());
+				//result.setNext(temp.getNext());
+				result.setArb(temp.getArb());
+			}
+			else
+			{   Node t=result;
+				while(t.getNext()!=null)
+					t=t.getNext();
+				Node newNode=new Node();
+				t.setNext(newNode);
+				newNode.setData(temp.getData());
+				//newNode.setNext(temp.getNext());
+				newNode.setArb(temp.getArb());
+			}
+		}
+		public static void printLinkedList(Node temp)
+		{
+			while(temp!=null)
+			{
+				System.out.printf("%d :",temp.getData());
+				if(temp.getArb()!=null)
+					System.out.printf("%d ",(temp.getArb()).getData());
+				temp=temp.getNext();
+			}
+			System.out.println(" ");
+		}
+		public static void insertion(Node temp,int key)
+		{
+			if(temp.getData()== null)
+			{
+				temp.setData(key);
+			}
+			else
+			{
+				while(temp.getNext() != null)
+					temp=temp.getNext();
+				
+				Node newNode=new Node();
+				newNode.setData(key);
+				temp.setNext(newNode);
+				
+			}
+		}
+}

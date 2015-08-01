@@ -1,0 +1,56 @@
+package get_middle_of_the_stack;
+import java.util.Scanner;
+
+public class Get_Middle_Of_The_Stack {
+	static Node head=new Node();
+	static Node tail=new Node();
+	static Node middle=new Node();
+	static int cn=0;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the numbers::");
+			String str=sc.nextLine();
+			String st[]=str.split(" ");
+			int len=st.length;
+			
+			for(int i=0;i<len;i++)
+			{
+				push_stack(Integer.parseInt(st[i]));
+			}
+		}
+		public static void push_stack(int key)
+		{  cn++;
+			if(head.getData() == null)
+			{
+				head.setData(key);
+				tail=head;
+				middle=head;
+			}
+			else
+			{
+				Node newNode=new Node();
+				newNode.setData(key);
+				
+				Node temp=head;
+				while(temp.getNext()!=null)
+				{
+					temp=temp.getNext();
+				}
+				temp.setNext(newNode);
+				newNode.setNext(null);
+				tail=newNode;
+				int y=cn/2;
+				Node t=head;
+				int g=1;
+				while(g!=y)
+				{
+					t=t.getNext();
+					g++;
+				}
+				middle=t;
+				if(cn%2!=0)
+					middle=middle.getNext();
+			}
+		}
+}

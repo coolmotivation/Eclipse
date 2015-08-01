@@ -1,0 +1,11 @@
+package infix_to_postfix;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Infix_to_Postfix {
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		
+	}
+}

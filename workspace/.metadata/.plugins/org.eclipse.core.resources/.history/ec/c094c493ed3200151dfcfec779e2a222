@@ -1,0 +1,88 @@
+package split_CCL_2_halves;
+
+import java.util.Scanner;
+
+public class Split_into_2_halves {
+	static Node head=new Node();
+	static Node shead=new Node();
+	static int n;
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the numner of elements::");
+		n=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<n;i++)
+		{
+			insertion(sc.nextInt());
+		}
+		sc.nextLine();
+		split_method2();
+		
+		/*split_method1();
+		System.out.println("Linked List first Part is::");
+		printLinkedList(head);
+		System.out.println("\nLinked List second Part is::");
+		printLinkedList(shead);*/
+	}
+	public static void split_method2()
+	{
+		
+	}
+	public static void split_method1()
+	{
+		int k=n/2;
+		int cn=1;
+		Node temp=head;
+		while(cn!=k)
+		{
+			temp=temp.getNext();
+			cn++;
+		}
+		Node ntemp=temp.getNext();
+		temp.setNext(head);
+		shead=ntemp;
+		while(ntemp.getNext()!=head)
+			ntemp=ntemp.getNext();
+		ntemp.setNext(shead);
+	}
+	
+	public static void printLinkedList(Node temp)
+	{ Node check=temp;
+		if(temp==null)
+		{
+		System.out.println("null");
+		return;
+		}
+		if(temp.getData()!=null)
+			System.out.printf("%d ",temp.getData());
+		
+		
+		temp=temp.getNext();
+		while(temp!=check)
+		{   
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+		
+	}
+	public static void insertion(int key)
+	{
+		 if(head.getData()==null)
+		{  
+			head.setData(key);
+			head.setNext(head);
+		}
+		else
+		{
+			Node temp=head;
+			while(temp.getNext()!=head)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			newNode.setNext(head);
+		}
+	}
+}

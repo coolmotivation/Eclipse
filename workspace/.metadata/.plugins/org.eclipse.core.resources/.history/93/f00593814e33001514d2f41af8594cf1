@@ -1,0 +1,7 @@
+package stack_using_2_queues;
+import java.util.Scanner;
+import java.util.Queue;
+
+public class Stack_using_2_Queues {
+		Queue q= new LinkedList();
+}

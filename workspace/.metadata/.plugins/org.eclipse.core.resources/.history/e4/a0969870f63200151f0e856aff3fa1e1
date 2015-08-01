@@ -1,0 +1,23 @@
+package stack_using_linked_list;
+import java.util.Scanner;
+
+public class Stack_using_Linked_List {
+		static Node head=new Node();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			while(true)
+			{
+				System.out.println("Enter 1:Push 2:Pop 3:Peek 4:Exit");
+				int n=Integer.parseInt(sc.nextLine());
+				switch(n)
+				{
+				case 1:
+				{
+					System.out.println("Enter the element to be inserted::");
+					int key=Integer.parseInt(sc.nextLine());
+				}
+				}
+			}
+		}
+}

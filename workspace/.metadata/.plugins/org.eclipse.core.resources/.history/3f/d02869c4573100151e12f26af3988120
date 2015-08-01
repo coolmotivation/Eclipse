@@ -1,0 +1,92 @@
+package add_linked_list_recursion;
+
+import java.util.Scanner;
+
+public class Add_Linked_List_Recursion {
+	static Node fhead=new Node();
+    static Node shead=new Node();
+   
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements in the first linked list::");
+		int n=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<n;i++)
+		{
+			insertion(fhead,sc.nextInt());
+		}
+		sc.nextLine();
+		
+		System.out.println(" ");
+		System.out.println("Enter the number of elements in the second linked list::");
+		n=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<n;i++)
+		{
+			insertion(shead,sc.nextInt());
+		}
+		sc.nextLine();
+		
+         System.out.println(" ");
+         System.out.println("\nAdding 2 linked list,we get::");
+         add_linked_list(fhead,shead,0);
+        
+     }
+	public static void add_linked_list(Node ftemp,Node stemp,int carry)
+	{
+	    if(ftemp==null && stemp==null && carry==0)
+	    	return;
+	    else if(ftemp==null && stemp==null && carry!=0)
+	    {
+	    	System.out.printf("%d ",carry);
+	    	return;
+	    }
+	    else
+	    {   int add=0;
+	    	if(ftemp!=null && stemp!=null)
+	    		 add = ftemp.getData() + stemp.getData() + carry;	
+	    	else if(ftemp!=null && stemp==null)
+	    		  add = ftemp.getData() + carry;
+	    	else if(ftemp==null && stemp!=null)
+	    		add = stemp.getData() + carry;
+	    	
+	    	carry=add%10;
+	    	add=add/10;
+	    	System.out.printf("%d ",add);
+	    	
+	    	if(ftemp!=null && stemp!=null)
+	    		add_linked_list(ftemp.getNext(),stemp.getNext(),carry);
+	    	else if(ftemp==null && stemp!=null)
+	    		add_linked_list(null,stemp.getNext(),carry);
+	    	else if(ftemp!=null && stemp==null)
+	    		add_linked_list(ftemp.getNext(),null,carry);
+	    }
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+	public static void insertion(Node temp,int key)
+	{   
+		if(temp.getData()==null)
+			{
+			temp.setData(key);
+			//System.out.println(temp.getData());
+			}
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			//System.out.println(newNode.getData());
+		}
+	}
+
+}

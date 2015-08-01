@@ -1,0 +1,13 @@
+package doubly_linked_list;
+
+public class Node {
+     private Node prev;
+     private Node next;
+     private Integer data;
+     public Node()
+     {
+    	 this.prev=null;
+    	 this.next=null;
+    	 data=null;
+     }
+}

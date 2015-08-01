@@ -1,0 +1,14 @@
+package postfix_evaluation;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Postfix_Evaluation {
+	static Stack<Integer> s=new Stack<Integer>();
+	 	public static void main(String args[])
+	 	{
+	 		Scanner sc=new Scanner(System.in);
+	 		
+	 		
+	 		sc.close();
+	 	}
+}

@@ -1,0 +1,73 @@
+package rotate_linked_list;
+
+import java.util.Scanner;
+
+import linked_list.Node;
+
+public class Rotate_Linked_List {
+	static Node head=new Node();
+	static int count=0;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the number of elements::");
+			int n=Integer.parseInt(sc.nextLine());
+			for(int i=0;i<n;i++)
+			{  
+				insertion(sc.nextInt());
+			}
+			sc.nextLine();
+			System.out.println("Enter the amount by which the linked list has to be rotated anto-clockwise::");
+			int k=Integer.parseInt(sc.nextLine());
+			rotate_Linked_List(k);
+			System.out.println("Rotating anti-clockwise we get::");
+			printLinkedList();
+		}
+		public static void rotate_Linked_List(int k)
+		{
+			Node temp=head;
+			int cn=0;
+			while(cn != k-1)
+			{
+				temp=temp.getNext();
+				cn++;
+			}
+			Node ntemp=temp.getNext();   // to be set head
+			temp.setNext(null);
+			temp=ntemp;
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			temp.setNext(head);
+			head=ntemp;
+		}
+		public static void printLinkedList()
+		{
+			Node temp=head;
+			while(temp!=null)
+			{
+				System.out.printf("%d ",temp.getData());
+				temp=temp.getNext();
+			}
+			System.out.println(" ");
+		}
+		public static void insertion(int key)
+		{
+			if(head.getData()== null)
+			{
+				head.setData(key);
+			}
+			else
+			{
+				Node temp=head;
+				while(temp.getNext() != null)
+					temp=temp.getNext();
+				
+				Node newNode=new Node();
+				newNode.setData(key);
+				temp.setNext(newNode);
+				
+			}
+		}
+}

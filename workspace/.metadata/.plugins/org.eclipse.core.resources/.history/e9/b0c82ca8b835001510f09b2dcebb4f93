@@ -1,0 +1,44 @@
+package stock_span_problem;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Stock_Span_Problem {
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the stocks price for each day::");
+			String str=sc.nextLine();
+			String st[]=str.split(" ");
+			int len=st.length;
+			int[] arr=new int[len];
+			for(int i=0;i<len;i++)
+			{
+				arr[i]=Integer.parseInt(st[i]);
+			}
+			stock_span_brute_force_approach(arr);
+		}
+		public static void stock_span_brute_force_approach(int[] arr)
+		{
+			int len=arr.length;
+			int[] span=new int[len];
+			span[0]=1;
+			for(int i=1;i<len;i++)
+			{
+				int cn=1;
+				int j=i-1;
+				while(arr[j] <= arr[i] && j>=0)
+				{
+					cn++;
+					j--;
+					if(j == -1)
+						break;
+				}
+				span[i]=cn;
+			}
+			for(int i=0;i<len;i++)
+			{
+				System.out.printf("%d ",span[i]);
+			}
+			System.out.println("");
+		}
+}

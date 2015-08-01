@@ -1,0 +1,68 @@
+package reverse_k_nodes;
+
+import java.util.Scanner;
+
+import pairwise_swap_linked_list.Node;
+
+public class Reverse_K_Linked_List {
+	static Node head=new Node();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the number of elements::");
+			int n=Integer.parseInt(sc.nextLine());
+			for(int i=0;i<n;i++)
+			{
+				insertion(sc.nextInt());
+			}
+	         printLinkedList(head);
+	         System.out.println("Enter the value of k(how much elements you want to reverse in a line)::");
+	         int k=Integer.parseInt(sc.nextLine());
+	         reverse_k_Linked_List(n,k);
+		}
+		public static void reverse_k_Linked_List(int n,int k)
+		{  
+			Node temp=head;
+			Node ntemp=temp.getNext();
+			Node nntemp;
+		  int count=0;
+		  while(count!=n)
+		  {
+			  int cn=0;
+			
+			while(cn!=k)
+			{
+				nntemp=ntemp.getNext();
+				ntemp.setNext(temp);
+				temp.setNext(nntemp);
+				ntemp=nntemp;
+				cn++;
+			}
+			count=count+cn;
+		  }
+		}
+		public static void printLinkedList(Node temp)
+		{
+			while(temp!=null)
+			{
+				System.out.printf("%d ",temp.getData());
+				temp=temp.getNext();
+			}
+		}
+		public static void insertion(int key)
+		{
+			if(head.getData()==null)
+				head.setData(key);
+			else
+			{
+				Node temp=head;
+				while(temp.getNext()!=null)
+				{
+					temp=temp.getNext();
+				}
+				Node newNode=new Node();
+				newNode.setData(key);
+				temp.setNext(newNode);
+			}
+		}
+}

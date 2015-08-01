@@ -1,0 +1,23 @@
+package get_middle_of_the_stack;
+import java.util.Scanner;
+
+public class Get_Middle_Of_The_Stack {
+	static int[] arr;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the numbers::");
+			String str=sc.nextLine();
+			String st[]=str.split(" ");
+			int len=st.length;
+			arr=new int[len];
+			for(int i=0;i<len;i++)
+			{
+				push_stack(Integer.parseInt(st[i]));
+			}
+		}
+		public static void push_stack(int key)
+		{
+			
+		}
+}

@@ -1,0 +1,62 @@
+package two_stack_in_a_array;
+import java.util.Scanner;
+
+public class Two_stack_in_a_array {
+		int[] arr=new int[20];
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the elements for the first stack::");
+			String st=sc.nextLine();
+			String s[]=st.split(" ");
+			int len=s.length;
+			for(int i=0;i<len;i++)
+			{
+				push_stack(s[i]);
+			}
+			st=null;
+			
+			System.out.println("Enter the elements for the second stack::");
+			st=sc.nextLine();
+			String s1[]=st.split(" ");
+			len=s1.length;
+			for(int i=0;i<len;i++)
+			{
+				push_stack(s1[i]);
+			}
+			while(true)
+			{
+				System.out.println("Enter 1:push  2:pop 3:peek 4:exit");
+				int n=Integer.parseInt(sc.nextLine());
+				switch(n)
+				{
+					case 1:
+					{
+						System.out.println("Enter the key to be inserted::");
+						int h=Integer.parseInt(sc.nextLine());
+						push_stack(h);
+						break;
+					}
+					case 2:
+					{
+						pop_stack();
+						break;
+					}
+					case 3:
+					{
+						peek_stack()
+						break;
+					}
+					case 4:
+					{
+						System.exit(0);
+					}
+				}
+			}
+			
+		}
+		public static void push_stack(int key)
+		{
+			
+		}
+}

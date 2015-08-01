@@ -1,0 +1,13 @@
+package stack_using_2_queues;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Queue;
+
+public class Stack_using_2_Queues {
+		Queue<Integer> q1= new LinkedList<Integer>();
+		Queue<Integer> q2= new LinkedList<Integer>();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+		}
+}

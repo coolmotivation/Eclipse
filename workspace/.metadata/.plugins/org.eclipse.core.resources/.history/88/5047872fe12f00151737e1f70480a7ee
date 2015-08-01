@@ -1,0 +1,35 @@
+package reverse_k_nodes;
+
+import pairwise_swap_linked_list.Node;
+
+public class Reverse_K_Linked_List {
+	static Node head=new Node();
+		public static void main(String args[])
+		{
+			
+		}
+		public static void printLinkedList(Node temp)
+		{
+			while(temp!=null)
+			{
+				System.out.printf("%d ",temp.getData());
+				temp=temp.getNext();
+			}
+		}
+		public static void insertion(int key)
+		{
+			if(head.getData()==null)
+				head.setData(key);
+			else
+			{
+				Node temp=head;
+				while(temp.getNext()!=null)
+				{
+					temp=temp.getNext();
+				}
+				Node newNode=new Node();
+				newNode.setData(key);
+				temp.setNext(newNode);
+			}
+		}
+}

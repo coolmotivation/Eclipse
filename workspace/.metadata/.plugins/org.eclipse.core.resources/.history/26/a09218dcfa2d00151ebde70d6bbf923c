@@ -1,0 +1,24 @@
+package Possible_trees;
+import java.util.Scanner;
+
+public class Possible_Trees {
+	static int cn=1;
+		public static void main(String args[])
+		{
+				Scanner sc=new Scanner(System.in);
+				System.out.println("Enter the number of Nodes::");
+				int n=Integer.parseInt(sc.nextLine());
+				System.out.printf("%d ",find_possible_trees(n));
+		}
+		public static int find_possible_trees(int n)
+		{
+			if(n==1 || n==0)
+				return 1;
+			else
+				cn=cn + cn*(cn-1)
+		}
+		public static int calculate(int k)
+		{
+			
+		}
+}

@@ -1,0 +1,23 @@
+package infix_to_postfix;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Infix_to_Postfix {
+	Stack<Integer> s1=new Stack<Integer>();
+	Stack<Integer> s2=new Stack<Integer>();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		infix_to_postfix(s);
+	}
+	public static void infix_to_postfix(String s)
+	{
+		
+		int len=s.length();
+		for(int i=0;i<len;i++)
+		{
+			
+		}
+	}
+}

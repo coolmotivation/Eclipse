@@ -1,0 +1,12 @@
+package next_greater_element;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Next_Greater_Element {
+		static Stack<Integer> s=new Stack<Integer>();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			
+		}
+}

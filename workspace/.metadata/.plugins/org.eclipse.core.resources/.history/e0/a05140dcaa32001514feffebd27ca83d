@@ -1,0 +1,62 @@
+package reverse_doubly_linked_list;
+
+import java.util.Scanner;
+
+public class Reverse_DLL {
+	static Node head=new Node();
+	static Node tail=new Node();
+	  public static void main(String args[])
+	  {
+		  Scanner sc=new Scanner(System.in);
+		  System.out.println("Enter the number of elements::");
+		  int n=Integer.parseInt(sc.nextLine());
+		  for(int i=0;i<n;i++)
+		  {
+			  insertion(head,sc.nextInt());
+		  }
+		  sc.nextLine();
+		  
+		  System.out.println("Linked List from the front will look like::");
+		  printLinkedList(head);
+	  }
+	  public static void printLinkedList(Node temp)
+	  {
+		  if(temp==head)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getNext();
+			  }
+		  }
+		  else if(temp==tail)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getPrev();
+			  }
+		  }
+	  }
+	  public static void insertion(Node temp,int key)
+	  {
+		  if(temp.getData()==null)
+		  {
+			  temp.setData(key);
+			  tail=temp;
+		  }
+		  else
+		  {
+			  Node t=head;
+			  while(t.getNext()!=null)
+			  {
+				  t=t.getNext();
+			  }
+			  Node newNode=new Node();
+			  newNode.setData(key);
+			  t.setNext(newNode);
+			  newNode.setPrev(t);
+			  tail=newNode;
+		  }
+	  }
+}

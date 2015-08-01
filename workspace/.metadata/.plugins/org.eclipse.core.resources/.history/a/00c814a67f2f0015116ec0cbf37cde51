@@ -1,0 +1,90 @@
+package merge_sorted_linked_list;
+
+import java.util.Scanner;
+
+import pairwise_swap_linked_list.Node;
+
+public class Merge_Sorted_Linked_List {
+	static Node head=new Node();
+	static Node nhead=new Node();
+	static Node newhead=new Node();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements in the first Linked List::");
+		int n=Integer.parseInt(sc.nextLine());
+		System.out.println("Enter the elements in sorted order::");
+		for(int i=0;i<n;i++)
+		{
+			insertion(head,sc.nextInt());
+		}
+		sc.nextLine();
+		System.out.println("Enter the number of elements in the second Linked List::");
+		n=Integer.parseInt(sc.nextLine());
+		System.out.println("Enter the elements in sorted order::");
+		for(int i=0;i<n;i++)
+		{
+			insertion(nhead,sc.nextInt());
+		}
+		printLinkedList(head);
+		System.out.println(" ");
+		printLinkedList(nhead);
+		System.out.println(" ");
+		
+		Node ntemp=nhead;
+		Node temp=head;
+		Node du=null;
+		while(ntemp!=null && temp!=null )
+		{   
+			if(ntemp.getData() < temp.getData())
+			{
+				//insertion(newhead,ntemp.getData());
+				ntemp.setNext(temp);
+				if(temp==head)
+					head=ntemp;
+				else
+					du.setNext(ntemp);
+				ntemp=ntemp.getNext();
+			}
+			else
+			{
+				//insertion(newhead,temp.getData());
+				du=temp;
+				temp=temp.getNext();
+			}
+		}
+		
+		while(ntemp!=null)
+		{
+			
+			ntemp=ntemp.getNext();
+		}
+		System.out.println("Merging both the linked list we get::");
+		printLinkedList(newhead);
+		System.out.println(" ");
+	}
+	
+	public static void insertion(Node temp,int key)
+	{
+		if(temp.getData()==null)
+			temp.setData(key);
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+		}
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+}

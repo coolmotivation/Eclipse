@@ -1,0 +1,10 @@
+package two_stack_in_a_array;
+import java.util.Scanner;
+
+public class Two_stack_in_a_array {
+		int[] arr;
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+		}
+}

@@ -1,0 +1,73 @@
+package merge_sorted_linked_list;
+import java.io.*;
+
+import pairwise_swap_linked_list.Node;
+
+public class Merge_Sorted_Linked_List {
+	static Node head=new Node();
+	static Node nhead=new Node();
+	public static void main(String args[]) throws IOException
+	{   BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter the number of elements in the first Linked List::");
+		int n=Integer.parseInt(br.readLine());
+		System.out.println("Enter the elements in sorted order::");
+		for(int i=0;i<n;i++)
+		{
+			insertion(head,br.read());
+		}
+		
+		System.out.println("Enter the number of elements in the second Linked List::");
+		n=Integer.parseInt(br.readLine());
+		System.out.println("Enter the elements in sorted order::");
+		for(int i=0;i<n;i++)
+		{
+			insertion(nhead,br.read());
+		}
+		
+		Node ntemp=nhead;
+		while(ntemp!=null)
+		{  Node temp=head;
+		   Node dummy=null;
+		   System.out.println("ihdh");
+		   while(ntemp.getData() > temp.getData())
+		   {
+			   dummy=temp;
+			   temp=temp.getNext();
+			   System.out.printf("%d %d\n",dummy.getData(),temp.getData());
+			   if(temp==null)
+				   break;
+		   }
+		   if(dummy!=null)
+			   dummy.setNext(ntemp);
+		   if(temp==head)
+			   ntemp=head;
+		   ntemp.setNext(temp);
+		   ntemp=ntemp.getNext();
+		}
+		printLinkedList(head);
+	}
+	
+	public static void insertion(Node temp,int key)
+	{
+		if(head.getData()==null)
+			head.setData(key);
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+		}
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+}

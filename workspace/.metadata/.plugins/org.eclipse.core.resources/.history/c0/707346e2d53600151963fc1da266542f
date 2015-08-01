@@ -1,0 +1,5 @@
+package hackerrank;
+import java.util.Scanner;
+public class pompom_pattern {
+
+}

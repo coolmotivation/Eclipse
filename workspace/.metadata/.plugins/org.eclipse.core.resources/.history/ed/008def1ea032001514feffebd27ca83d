@@ -1,0 +1,90 @@
+package doubly_linked_list;
+import java.util.Scanner;
+
+public class DLL_Implementation {
+	static Node head=new Node();
+	static Node tail=new Node();
+	  public static void main(String args[])
+	  {
+		  Scanner sc=new Scanner(System.in);
+		  System.out.println("Enter the number of elements::");
+		  int n=Integer.parseInt(sc.nextLine());
+		  for(int i=0;i<n;i++)
+		  {
+			  insertion(head,sc.nextInt());
+		  }
+		  sc.nextLine();
+		  
+		  System.out.println("Linked List from the front will look like::");
+		  printLinkedList(head);
+		 
+		  System.out.println("Enter 1:Insert at the front\n 2:Insert at the end\n 3:Insert before\n 4:Insert after");
+		 int t=Integer.parseInt(sc.nextLine());
+		 switch(t)
+		 {
+		 case 1:
+		 {
+			 System.out.println("Enter the element to be inserted at front::");
+			 int key=Integer.parseInt(sc.nextLine());
+			 Node newNode=new Node();
+			 newNode.setData(key);
+			 newNode.setNext(head);
+			 head.setPrev(newNode);
+			 head=newNode;
+			 break;
+		 }
+		 case 2:
+		 {
+			 System.out.println("Enter the element to be inserted at end::");
+			 int key=Integer.parseInt(sc.nextLine());
+			 Node newNode=new Node();
+			 newNode.setData(key);
+			 tail.setNext(newNode);
+			 newNode.setPrev(tail);
+			 tail=newNode;
+			 break;
+		 }
+		 
+		 }
+	  }
+	  public static void printLinkedList(Node temp)
+	  {
+		  if(temp==head)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getNext();
+			  }
+		  }
+		  else if(temp==tail)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getPrev();
+			  }
+		  }
+	  }
+	  public static void insertion(Node temp,int key)
+	  {
+		  if(temp.getData()==null)
+		  {
+			  temp.setData(key);
+			  tail=temp;
+		  }
+		  else
+		  {
+			  Node t=head;
+			  while(t.getNext()!=null)
+			  {
+				  t=t.getNext();
+			  }
+			  Node newNode=new Node();
+			  newNode.setData(key);
+			  t.setNext(newNode);
+			  newNode.setPrev(t);
+			  tail=newNode;
+		  }
+	  }
+}

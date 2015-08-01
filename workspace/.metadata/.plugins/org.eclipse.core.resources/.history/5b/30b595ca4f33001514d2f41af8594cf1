@@ -1,0 +1,54 @@
+package stack_using_2_queues;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Queue;
+
+public class Stack_using_2_Queues {
+		static Queue<Integer> q1= new LinkedList<Integer>();
+		static Queue<Integer> q2= new LinkedList<Integer>();
+		static String active="q1";
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			while(true)
+			{
+				System.out.println("Enter 1:push 2:pop 3:peek 4:Exit");
+				int n=Integer.parseInt(sc.nextLine());
+				if(n==4)
+					break;
+				switch(n)
+				{
+				case 1:
+					{
+					   System.out.println("Enter the element to be pushed::");
+					   int key=Integer.parseInt(sc.nextLine());
+					   push(key);
+					   break;
+					}
+				case 2:
+					{
+					   pop();
+					   break;
+					}
+				case 3:
+					{
+					   peek();
+					   break;
+					}
+				}
+			}
+		}
+		public static void push(int key)
+		{
+			
+			q1.add(key);
+		}
+		public static void pop()
+		{
+			
+		}
+		public static void peek()
+		{
+			
+		}
+}

@@ -1,0 +1,78 @@
+package balanced_paranthesis;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Balanced_Paranthesis {
+	static Stack<Character> s=new Stack<Character>();
+	 public static void main(String args[])
+	 {
+		 Scanner sc=new Scanner(System.in);
+		 System.out.println("Enter the string::");
+		 String str=sc.nextLine();
+		 check_balanced(str);
+	 }
+	 public static void check_balanced(String str)
+	 {
+		 int len=str.length();
+		 for(int i=0;i<len;i++)
+		 {
+			 char c=str.charAt(i);
+			 if(c == '(' || c == '[' || c == '{')
+			 {
+				 s.push(c);
+			 }
+			 else
+			 {
+				 char k=s.peek();
+				 	switch(c)
+				 	{
+				 		case ')':
+				 		{
+					      if(k == '(')
+					      {
+					    	  s.pop();
+					    	  break;
+					      }
+					      else
+					      {
+					    	  System.out.println("Not balanced");
+					    	  return;
+					      }
+				 		}
+				 		case '}':
+				 		{
+					      if(k == '{')
+					      {
+					    	  s.pop();
+					    	  break;
+					      }
+					      else
+					      {
+					    	  System.out.println("Not balanced");
+					    	  return;
+					      }
+				 		}
+				 		case ']':
+				 		{
+					      if(k == '[')
+					      {  
+					    	  s.pop();
+					    	  break;
+					      }
+					      else
+					      {
+					    	  s.pop();
+					    	  System.out.println("Not balanced");
+					    	  return;
+					      }
+					     
+				 		}
+				 	}
+			 }
+		 }
+		 if(s.isEmpty())
+		 {
+			 System.out.println("Balanced");
+		 }
+	 }
+}

@@ -1,0 +1,20 @@
+package infix_to_postfix_1_stack;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Infix_to_Postfix_1_stack {
+	static Stack<Character> s1=new Stack<Character>();
+	static Stack<Character> s2=new Stack<Character>();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		String s=sc.nextLine();
+		infix_to_postfix_using_1_stack(s);
+		sc.close();
+	}
+	public static void infix_to_postfix_using_1_stack(String s)
+	{
+		
+	}
+}

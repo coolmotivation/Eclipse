@@ -1,0 +1,71 @@
+package maximum_sum_linked_list;
+
+import java.util.Scanner;
+
+import merge_linked_list_alternate.Node;
+
+public class Maximum_Sum {
+	static Node fhead=new Node();
+	static Node shead=new Node();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements in the first linked list::");
+		int y=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<y;i++)
+		{
+			insertion(fhead,sc.nextInt());
+		}
+		sc.nextLine();
+		
+		System.out.println("Enter the number of elements in the second linked list::");
+		y=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<y;i++)
+		{
+			insertion(shead,sc.nextInt());
+		}
+		sc.nextLine();
+		
+		
+	}
+	public static Node commonNode(Node ftemp,Node stemp)
+	{
+		while(ftemp!=null && stemp!=null)
+		{
+			if(ftemp.getData() < stemp.getData())
+				ftemp=ftemp.getNext();
+			else if(ftemp.getData() > stemp.getData())
+				  stemp=stemp.getNext();
+			else if(ftemp.getData() == stemp.getData())
+				  return (ftemp);
+		}
+		return null;
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+	public static void insertion(Node temp,int key)
+	{   
+		if(temp.getData()==null)
+			{
+			temp.setData(key);
+			//System.out.println(temp.getData());
+			}
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			//System.out.println(newNode.getData());
+		}
+	}
+}

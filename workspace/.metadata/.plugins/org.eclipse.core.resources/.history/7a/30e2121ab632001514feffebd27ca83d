@@ -1,0 +1,112 @@
+package quick_sort_DLL;
+
+import java.util.Scanner;
+
+public class Quick_Sort_DLL {
+	static Node head=new Node();
+	static Node tail=new Node();
+	  public static void main(String args[])
+	  {
+		  Scanner sc=new Scanner(System.in);
+		  System.out.println("Enter the number of elements::");
+		  int n=Integer.parseInt(sc.nextLine());
+		  for(int i=0;i<n;i++)
+		  {
+			  insertion(head,sc.nextInt());
+		  }
+		  sc.nextLine();
+		  
+		  System.out.println("\nLinked List after quick sort will look like::");
+		  printLinkedList(head);
+		 
+		  sc.close();
+	  }
+	  public static void quick_sort(int start,int end)
+	  {
+		  if(start<end)
+		  {
+			  int pivot=partition(start,end);
+			  quick_sort(start,pivot-1);
+			  quick_sort(pivot+1,end);
+		  }
+	  }
+	  public static int partition(int start,int end)
+	  {
+		  int cn=1;
+		  Node temp=head;
+		  while(cn!=start)
+		  {
+			  temp=temp.getNext();
+			  cn++;
+		  }
+		  
+		  Node last=temp;
+		  while(cn!=end)
+		  {
+			  last=last.getNext();
+			  cn++;
+		  }
+		  // last is the node pointing the end element
+		  Node first=temp;
+		  Node second=temp;
+		  int pivot=last.getData();
+		  int count=start;
+		  while(second!=last)
+		  {
+			  if(second.getData() < pivot)
+			  {
+				  int t=second.getData();
+				  second.setData(first.getData());
+				  first.setData(t);
+				  first=first.getNext();
+				  count++;
+			  }
+			  second=second.getNext();
+		  }
+		  int t=last.getData();
+		  last.setData(first.getData());
+		  first.setData(t);
+		  
+		  return count;
+	  }
+	  public static void printLinkedList(Node temp)
+	  {
+		  if(temp==head)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getNext();
+			  }
+		  }
+		  else if(temp==tail)
+		  {
+			  while(temp!=null)
+			  {
+				  System.out.printf("%d ",temp.getData());
+				  temp=temp.getPrev();
+			  }
+		  }
+	  }
+	  public static void insertion(Node temp,int key)
+	  {
+		  if(temp.getData()==null)
+		  {
+			  temp.setData(key);
+			  tail=temp;
+		  }
+		  else
+		  {
+			  Node t=head;
+			  while(t.getNext()!=null)
+			  {
+				  t=t.getNext();
+			  }
+			  Node newNode=new Node();
+			  newNode.setData(key);
+			  t.setNext(newNode);
+			  newNode.setPrev(t);
+			  tail=newNode;
+		  }
+	  }
+}

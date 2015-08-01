@@ -1,0 +1,54 @@
+package point_to_next_higher_value;
+
+import java.util.Scanner;
+
+import merge_linked_list_alternate.Node;
+
+public class Point_Higher_Value {
+	static Node head=new Node();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements in the linked list::");
+		int y=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<y;i++)
+		{
+			insertion(head,sc.nextInt());
+		}
+		sc.nextLine();
+		
+		System.out.println("Pairwise swapping by changing the links we get::");
+		printLinkedList(head);
+	}
+	public static void point_to_higher()
+	{
+		
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+	public static void insertion(Node temp,int key)
+	{   
+		if(temp.getData()==null)
+			{
+			temp.setData(key);
+			//System.out.println(temp.getData());
+			}
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			
+		}
+	}
+}

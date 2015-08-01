@@ -1,0 +1,45 @@
+package special_stack;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Special_Stack {
+		static Stack<Integer> s1=new Stack<Integer>();
+		static Stack<Integer> s2=new Stack<Integer>();
+	     public static void main(String args[])
+	     {
+	    	 Scanner sc=new Scanner(System.in);
+	    	 System.out.println("Enter the numbers to be inserted in this special stack::");
+	    	 String str=sc.nextLine();
+	    	 String st[]=str.split(" ");
+	    	 sc.close();
+	     }
+	     public static void push_special_stack(int key)
+	     {
+	    	 if(s1.isEmpty())
+	    	 {
+	    		 s1.push(key);
+	    		 s2.push(key);
+	    	 }
+	    	 else
+	    	 {
+	    		 if(!s2.isEmpty())
+	    		 {
+	    			 int t=s2.peek();
+	    			 if(key < t)
+	    			 {
+	    				 s1.push(key);
+	    				 s2.push(key);
+	    			 }
+	    			 else
+	    			 {
+	    				 s1.push(key);
+	    				 s2.push(t);
+	    			 }
+	    		 }
+	    	 }
+	     }
+	     public static void pop_special_stack()
+	     {
+	    	 
+	     }
+}

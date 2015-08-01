@@ -1,0 +1,15 @@
+package three_sum_problem;
+
+import java.util.LinkedList;
+import java.util.*;
+
+public class Three_Sum_Problem {
+	List<Integer> first=new LinkedList<Integer>();
+	List<Integer> second=new LinkedList<Integer>();
+	List<Integer> third=new LinkedList<Integer>();
+	
+	public static void main(String args[])
+		{
+			
+		}
+}

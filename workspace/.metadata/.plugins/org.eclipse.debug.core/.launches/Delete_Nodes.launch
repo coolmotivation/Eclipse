@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Course/src/delet_nodes_with_greater_value_on_right/Delete_Nodes.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="delet_nodes_with_greater_value_on_right.Delete_Nodes"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Course"/>
+</launchConfiguration>

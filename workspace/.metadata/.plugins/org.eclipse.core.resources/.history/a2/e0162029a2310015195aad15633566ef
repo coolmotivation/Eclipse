@@ -1,0 +1,48 @@
+//Merge a linked list into another linked list at alternate positions
+package merge_linked_list_alternate;
+import java.util.Scanner;
+
+public class Merge_Linked_List_Alternate {
+	static Node head=new Node();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements in the linked list::");
+		int y=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<y;i++)
+		{
+			insertion(head,sc.nextInt());
+		}
+		sc.nextLine();
+		printLinkedList(head);
+		
+		
+	}
+	public static void printLinkedList(Node temp)
+	{
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+	}
+	public static void insertion(Node temp,int key)
+	{   
+		if(temp.getData()==null)
+			{
+			temp.setData(key);
+			//System.out.println(temp.getData());
+			}
+		else
+		{
+			while(temp.getNext()!=null)
+			{
+				temp=temp.getNext();
+			}
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			//System.out.println(newNode.getData());
+		}
+	}
+}

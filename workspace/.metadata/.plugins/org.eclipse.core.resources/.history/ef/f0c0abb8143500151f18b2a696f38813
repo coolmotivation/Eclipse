@@ -1,0 +1,29 @@
+package reverse_a_string;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Reverse_a_String {
+		static Stack<Character> s=new Stack<Character>();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the String to be reversed::");
+			String str=sc.nextLine();
+			reverse_using_stack(str);
+		}
+		public static void reverse_using_stack(String str)
+		{
+			int len=str.length();
+			for(int i=0;i<len;i++)
+			{
+				char c=str.charAt(i);
+				s.push(c);
+			}
+			 str = "";
+			for(int i=0;i<len;i++)
+			{
+				str=str+ s.pop();
+			}
+			System.out.println(str);
+		}
+}

@@ -1,0 +1,50 @@
+package swap_k_nodes;
+
+import java.util.Scanner;
+
+public class Swap_k_Nodes {
+  static Node head=new Node();
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number of elements::");
+		int n=Integer.parseInt(sc.nextLine());
+		for(int i=0;i<n;i++)
+		{  
+			//v.add(sc.nextInt());
+			insertion(sc.nextInt());
+		}
+		sc.nextLine();
+		System.out.println("enter the element to be swapped::");
+		int k=Integer.parseInt(sc.nextLine());
+		
+	}
+	public static void printLinkedList()
+	{
+		Node temp=head;
+		while(temp!=null)
+		{
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+		}
+		System.out.println(" ");
+	}
+	public static void insertion(int key)
+	{
+		if(head.getData()== null)
+		{
+			head.setData(key);
+		}
+		else
+		{
+			Node temp=head;
+			while(temp.getNext() != null)
+				temp=temp.getNext();
+			
+			Node newNode=new Node();
+			newNode.setData(key);
+			temp.setNext(newNode);
+			
+		}
+	}
+}

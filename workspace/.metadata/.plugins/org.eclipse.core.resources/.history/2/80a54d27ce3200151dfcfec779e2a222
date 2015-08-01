@@ -1,0 +1,52 @@
+package insertion_deletion_CLL;
+import java.util.Scanner;
+
+public class Insertion_Deletion_Singly_CLL {
+		static Node head=new Node();
+		public static void main(String args[])
+		{
+			Scanner sc=new Scanner(System.in);
+			System.out.println("Enter the numner of elements::");
+			int n=Integer.parseInt(sc.nextLine());
+			for(int i=0;i<n;i++)
+			{
+				insertion(sc.nextInt());
+			}
+			sc.nextLine();
+			System.out.println("the Singly Circular linked list entered till now is::");
+			printLinkedList();
+			System.out.println("\nEnter 1:Insert_start 2:Insert_end 3:Insert_before 4:Insert_after");
+			int k=Integer.parseInt(sc.nextLine());
+		}
+		public static void printLinkedList()
+		{
+			Node temp=head;
+			System.out.printf("%d ",temp.getData());
+			temp=temp.getNext();
+			while(temp!=head)
+			{
+				System.out.printf("%d ",temp.getData());
+				temp=temp.getNext();
+			}
+		}
+		public static void insertion(int key)
+		{
+			if(head.getData()==null)
+			{
+				head.setData(key);
+				head.setNext(head);
+			}
+			else
+			{
+				Node temp=head;
+				while(temp.getNext()!=head)
+				{
+					temp=temp.getNext();
+				}
+				Node newNode=new Node();
+				newNode.setData(key);
+				temp.setNext(newNode);
+				newNode.setNext(head);
+			}
+		}
+}
